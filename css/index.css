@@ -1,0 +1,21 @@
+body {
+  font-size: 13px;
+  line-height: 1.8;
+  color: 333;
+  min-width: 200px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  -ms-background-size: cover;
+  background-position: center center;
+  font-weight: 400;
+  font-family: "Roboto Slab";
+  margin: 0px;
+}
+
+.container {
+  margin: 20px;
+  padding: 20px;
+}

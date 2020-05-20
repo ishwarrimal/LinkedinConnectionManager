@@ -1,0 +1,26 @@
+{
+  "name": "Linkedin Friendship Bot",
+  "description": "Send, withdraw connection request.",
+  "version": "1.0",
+  "browser_action": {
+    "default_popup": "index.html",
+    "default_icon": "./assets/logo.png"
+  },
+  "manifest_version": 2,
+  "commands": {
+    "_execute_browser_action": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+F",
+        "mac": "MacCtrl+Shift+F"
+      },
+      "description": "Opens index.html"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["./scripts/index.js"]
+    }
+  ],
+  "permissions": ["tabs", "activeTab"]
+}
