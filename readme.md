@@ -6,7 +6,7 @@ NOTE: Its a Work In Progress
 
 ## TODO
 
-1. ~~Send request to `x` number of people~~.
+1. ~~Withdrwa connection of `x` number of people~~.
 2. Withdraw all the request which have passed `y` days.
 3. Option to add new connection.
 4. Connection based on some criteria.
