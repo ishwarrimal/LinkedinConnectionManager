@@ -2,11 +2,15 @@
 
 This will add conneciton and cancel old connections
 
+NOTE: Its a Work In Progress
+
 ## TODO
 
-1. Send request to `x` number of people.
+1. ~~Send request to `x` number of people~~.
 2. Withdraw all the request which have passed `y` days.
+3. Option to add new connection.
+4. Connection based on some criteria.
 
-_Addition_ :
+## Version 1.0
 
-1. Can give categry of person to send request to.
+A simple UI from where you can withdraw connection request.
