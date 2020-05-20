@@ -1,4 +1,4 @@
-# Bot for linkedin
+# Connection Manager for Linkedin
 
 This will add conneciton and cancel old connections
 
