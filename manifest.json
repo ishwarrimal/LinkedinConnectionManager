@@ -1,5 +1,5 @@
 {
-  "name": "Linkedin Friendship Bot",
+  "name": "Linkedin Connection Manager",
   "description": "Send, withdraw connection request.",
   "version": "1.0",
   "browser_action": {
@@ -18,7 +18,9 @@
   },
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
+      "matches": [
+        "https://www.linkedin.com/mynetwork/invitation-manager/sent/"
+      ],
       "js": ["./scripts/index.js"]
     }
   ],
