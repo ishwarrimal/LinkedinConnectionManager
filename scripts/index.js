@@ -25,7 +25,7 @@ async function gotMessage(noOfUser, sender, sendresponse) {
       elem.click();
       i++;
       syncIt();
-    }, 1500);
+    }, 500);
   };
   syncIt();
 }
