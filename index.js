@@ -17,6 +17,7 @@ function handleClick(e) {
 
 function handleRedirect(e) {
   e.preventDefault();
+  document.getElementById("form").style.display = "block";
   let params = {
     active: true,
     currentWindow: true,
