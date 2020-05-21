@@ -18,8 +18,9 @@ async function gotMessage(inputObj, sender, sendresponse) {
     var startCounter = olderFirst ? totalLength - 1 : 0;
     var counter = 0;
     var waitForClick;
+    console.log({ noOfUsers });
     var syncIt = () => {
-      if (counter > noOfUsers) {
+      if (counter > Number(noOfUsers)) {
         clearInterval(waitForClick);
         return;
       }
@@ -29,10 +30,10 @@ async function gotMessage(inputObj, sender, sendresponse) {
         var elem = document.querySelector("[data-test-dialog-primary-btn]");
         console.log(elem);
         elem.click();
-        startCounter = olderFirst ? startCounter-- : startCounter++;
+        startCounter = olderFirst ? startCounter - 1 : startCounter + 1;
         counter++;
         syncIt();
-      }, 500);
+      }, 700);
     };
     syncIt();
   }
