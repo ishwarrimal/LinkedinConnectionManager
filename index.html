@@ -1,37 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Friendship Linkedin</title>
-    <link rel="stylesheet" href="./css/index.css" />
-  </head>
-  <body>
-    <div class="container">
-      <h3>Linkein Connection Manager</h3>
-      <h3>
-        <b>Make sure youre on linkedin page</b><br />
-        I want to: <br />
-        <button id="redirect">Withdraw Connection</button>
-        <button id="redirect_add" disabled>Add Connection</button>
-      </h3>
-      <form class="form" id="form">
-        <label for="order">Order</label>
-        <select id="order">
-          <option default value="old">Older first</option>
-          <option value="new">Newest first</option>
-        </select>
-        <br />
-        <label for="onOfUSer">
-          No Of User:
-        </label>
-        <input type="number" id="noOfUser" placeholder="Leave empty for all" />
-        <br />
-        <button type="submit" value="Withdraw" id="withdraw">
-          Withdraw Request
-        </button>
-      </form>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Friendship Linkedin</title>
+  <link rel="stylesheet" href="./css/index.css" />
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+<style>
+  .custom-footer-text {
+    text-align: center;
+    font-size: .65em;
+    font-weight: bold;
+    background: lightgray;
+    color: #867373;
+  }
+  .btn-group-vertical>.btn-group:not(:first-child),
+  .btn-group-vertical>.btn:not(:first-child) {
+    margin-top: 5px;
+  }
+
+  .btn-group-vertical>.btn-group:not(:first-child)>.btn,
+  .btn-group-vertical>.btn:not(:first-child),
+  .btn-group-vertical>.btn-group:not(:last-child)>.btn,
+  .btn-group-vertical>.btn:not(:last-child):not(.dropdown-toggle) {
+    padding: 0px 4px 0px 4px;
+  }
+
+  .jumbotron {
+    padding: 0.5rem 0.5rem;
+    background-color: #e9ecef;
+    border-radius: 0%;
+  }
+
+  .container {
+    margin-top: -25px;
+  }
+</style>
+
+<body>
+  <div class="jumbotron text-center">
+    <h6>Linkedin Connection Manager</h6>
+  </div>
+  <div class="container">
+    <div class="row">
     </div>
-    <script type="text/javascript" src="index.js"></script>
-  </body>
+    <div class="row">
+      <div class="col-sm-8">
+        <div class="btn-group-vertical">
+          <button type="button" id="redirect" class="btn btn-primary">Withdraw Connection</button>
+          <button type="button" id="redirect_add" class="btn btn-primary">Add Connection</button>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-8">
+        <form class="form" id="form">
+          <label for="order">Order</label>
+          <select id="order">
+            <option default value="old">Older first</option>
+            <option value="new">Newest first</option>
+          </select>
+          <br />
+          <label for="onOfUSer">
+            No Of User:
+          </label>
+          <input type="number" id="noOfUser" placeholder="Leave empty for all" />
+          <br />
+          <button type="submit" value="Withdraw" id="withdraw">
+            Withdraw Request
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="row">
+      <div class="col-sm-8 custom-footer-text">
+        Make sure you are on Linkedin page
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="index.js"></script>
+</body>
+
 </html>
