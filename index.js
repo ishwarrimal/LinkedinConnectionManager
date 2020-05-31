@@ -26,7 +26,6 @@ function handleRedirect(e) {
   const inputObj = { type: "redirect" };
 
   function gotTabs(tabs) {
-    console.log({ inputObj });
     chrome.tabs.sendMessage(tabs[0].id, inputObj);
   }
 }
