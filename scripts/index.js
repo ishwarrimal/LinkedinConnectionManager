@@ -5,7 +5,6 @@ const connectionUrl =
 async function gotMessage(inputObj, sender, sendresponse) {
   console.log({ inputObj });
   if (inputObj.type === "redirect") {
-    console.log("hey");
     window.location.replace(connectionUrl);
   } else if (inputObj.type === "withdraw") {
     console.log({ inputObj });
