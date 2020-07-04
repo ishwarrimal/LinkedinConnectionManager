@@ -8,7 +8,9 @@ async function gotMessage(inputObj, sender, sendresponse) {
   } else if (inputObj.type === "withdraw") {
     
     const olderFirst = inputObj.order === "old";
-    goToLastPage(olderFirst);
+    if (olderFirst) {
+      goToLastPage();
+    }
     setTimeout(() => {
       var totalConnections = document.querySelectorAll(
         '[data-control-name="withdraw_single"]'
@@ -34,7 +36,7 @@ async function gotMessage(inputObj, sender, sendresponse) {
             removeCounter++; // 1
             if (olderFirst && refNumber < removeCounter - 1) {
               console.log("last page navigated");
-              goToLastPage(olderFirst);
+              goToLastPage();
             }
             if (removeCounter < Number(noOfUsersToWithdraw)) {
               syncIt();
@@ -47,11 +49,9 @@ async function gotMessage(inputObj, sender, sendresponse) {
     }, 2000);
   }
 
-  function goToLastPage(olderFirst) {
-    if (olderFirst) {
-      var requestPageList = document.querySelectorAll(".artdeco-pagination__indicator");
-      var button = requestPageList[requestPageList.length - 1].querySelector("button");
-      button.click();
-    }
+  function goToLastPage() {
+    var requestPageList = document.querySelectorAll(".artdeco-pagination__indicator");
+    var button = requestPageList[requestPageList.length - 1].querySelector("button");
+    button.click();
   }
 }
