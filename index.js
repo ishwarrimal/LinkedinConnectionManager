@@ -18,6 +18,8 @@ function handleClick(e) {
 function handleRedirect(e) {
   e.preventDefault();
   document.getElementById("form").style.display = "block";
+  document.getElementById("back-btn-redirect").style.display = "block";
+  document.getElementById("redirect_add").style.display = "none";
   let params = {
     active: true,
     currentWindow: true,
@@ -30,5 +32,22 @@ function handleRedirect(e) {
   }
 }
 
+function backButtonForWithdraw(event) {
+  event.preventDefault();
+  document.getElementById("form").style.display = "none";
+  document.getElementById("back-btn-redirect").style.display = "none";
+  document.getElementById("redirect_add").style.display = "block";
+}
+
+function backButtonForAdd(event) {
+  event.preventDefault();
+  // document.getElementById("form").style.display = "none"; This should be implimented after Add connection
+  document.getElementById("back-btn-redirect_add").style.display = "none";
+  document.getElementById("withdraw").style.display = "block";
+}
+
 document.getElementById("withdraw").addEventListener("click", handleClick);
 document.getElementById("redirect").addEventListener("click", handleRedirect);
+document.getElementById("back-btn-redirect").addEventListener("click", backButtonForWithdraw);
+document.getElementById("back-btn-redirect_add").addEventListener("click", backButtonForAdd);
+

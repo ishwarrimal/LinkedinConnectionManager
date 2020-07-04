@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,6 +8,9 @@
   <link rel="stylesheet" href="./css/index.css" />
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+  <!-- CDN Font Awesomes -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <!-- jQuery library -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -29,6 +32,10 @@
 
   .form-group {
     margin: 5px 5px 5px 5px;
+  }
+
+  .back-btn {
+    display: none;
   }
 
   .custom-footer-text {
@@ -82,8 +89,20 @@
     <div class="row">
       <div class="col-sm-8 text-center">
         <div class="btn-group-vertical">
-          <button type="button" id="redirect" class="btn btn-primary btn-sm">Withdraw Connection</button>
-          <button type="button" id="redirect_add" disabled class="btn btn-primary btn-sm">Add Connection</button>
+          <div class="btn-group">
+            <button id="back-btn-redirect" type="button" class="btn btn-warning btn-sm back-btn"><i
+                class="fa fa-angle-double-left" style="font-size:24px"></i></button>
+            <button type="button" id="redirect" class="btn btn-primary btn-sm">Withdraw Connection</button>
+          </div>
+
+
+          <div class="btn-group">
+            <button id="back-btn-redirect_add" type="button" class="btn btn-warning btn-sm back-btn"><i
+                class="fa fa-angle-double-left" style="font-size:24px"></i></button>
+            <button type="button" id="redirect_add" disabled class="btn btn-primary btn-sm">Add Connection</button>
+          </div>
+
+
         </div>
       </div>
     </div>
