@@ -3,7 +3,7 @@ const connectionUrl =
   "https://www.linkedin.com/mynetwork/invitation-manager/sent/";
 
 async function gotMessage(inputObj, sender, sendresponse) {
-  if (inputObj.type === "redirect") {
+  if (inputObj.type === "redirect" && window.location.href !== connectionUrl) {
     window.location.replace(connectionUrl);
   } else if (inputObj.type === "withdraw") {
     
