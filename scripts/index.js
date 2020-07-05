@@ -6,7 +6,7 @@ async function gotMessage(inputObj, sender, sendresponse) {
   if (inputObj.type === "redirect" && window.location.href !== connectionUrl) {
     window.location.replace(connectionUrl);
   } else if (inputObj.type === "withdraw") {
-    
+
     const olderFirst = inputObj.order === "old";
     if (olderFirst) {
       goToLastPage();
@@ -34,6 +34,7 @@ async function gotMessage(inputObj, sender, sendresponse) {
             elem.click();
             startCounter = olderFirst ? startCounter - 1 : startCounter + 1;
             removeCounter++; // 1
+
             if (olderFirst && refNumber < removeCounter - 1) {
               console.log("last page navigated");
               goToLastPage();
@@ -43,7 +44,7 @@ async function gotMessage(inputObj, sender, sendresponse) {
             }
           }, 700);
         }
-        
+
       };
       syncIt();
     }, 2000);
@@ -51,7 +52,9 @@ async function gotMessage(inputObj, sender, sendresponse) {
 
   function goToLastPage() {
     var requestPageList = document.querySelectorAll(".artdeco-pagination__indicator");
-    var button = requestPageList[requestPageList.length - 1].querySelector("button");
-    button.click();
+    if (requestPageList && requestPageList.length > 0) {
+      var button = requestPageList[requestPageList.length - 1].querySelector("button");
+      button.click();
+    }
   }
 }
