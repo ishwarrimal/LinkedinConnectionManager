@@ -1,0 +1,149 @@
+<select class="custom-select custom-select-sm" id="order">
+  <option default value="new">Newest first</option>
+  <option value="old">Oldest first</option>
+</select>
+
+<input
+  type="number"
+  class="form-control"
+  id="noOfUser"
+  placeholder="Leave Empty for all"
+/>
+
+<p id="interim"></p>
+
+<button id="start_button">
+    <img id="start_img" src="assets/mic.gif" alt="Start"></button>
+</div>
+
+<script>
+//     var messages = {
+//   "start": {
+//     msg: 'Click on the microphone icon and begin speaking.',
+//     class: 'alert-success'},
+//   "speak_now": {
+//     msg: 'Speak now.',
+//     class: 'alert-success'},
+//   "no_speech": {
+//     msg: 'No speech was detected. You may need to adjust your <a href="//support.google.com/chrome/answer/2693767" target="_blank">microphone settings</a>.',
+//     class: 'alert-danger'},
+//   "no_microphone": {
+//     msg: 'No microphone was found. Ensure that a microphone is installed and that <a href="//support.google.com/chrome/answer/2693767" target="_blank">microphone settings</a> are configured correctly.',
+//     class: 'alert-danger'},
+//   "allow": {
+//     msg: 'Click the "Allow" button above to enable your microphone.',
+//     class: 'alert-warning'},
+//   "denied": {
+//     msg: 'Permission to use microphone was denied.',
+//     class: 'alert-danger'},
+//   "blocked": {
+//     msg: 'Permission to use microphone is blocked. To change, go to chrome://settings/content/microphone',
+//     class: 'alert-danger'},
+//   "upgrade": {
+//     msg: 'Web Speech API is not supported by this browser. It is only supported by <a href="//www.google.com/chrome">Chrome</a> version 25 or later on desktop and Android mobile.',
+//     class: 'alert-danger'},
+//   "stop": {
+//       msg: 'Stop listening, click on the microphone icon to restart',
+//       class: 'alert-success'},
+//   "copy": {
+//     msg: 'Content copy to clipboard successfully.',
+//     class: 'alert-success'},
+// }
+
+
+  if ("webkitSpeechRecognition" in window) {
+    navigator.webkitGetUserMedia({
+        audio: true,
+        }, function(stream) {
+            stream.stop();
+            // Now you know that you have audio permission. Do whatever you want...
+        }, function() {
+            // Aw. No permission (or no microphone available).
+    });
+
+    function processResult(result) {
+      recognition.stop();
+      console.log(result);
+      var count = 0;
+      var position = null;
+      result = result.toLowerCase().split(" ");
+      result.forEach((subStr) => {
+        if (position && count) {
+          return;
+        }
+        if (["one", "tow"].indexOf(subStr) > -1) {
+          count = subStr == "one" ? 1 : 2;
+        } else if (!count && !isNaN(subStr)) {
+          count = subStr;
+        } else if (["newest", "newer", "new", "first"].indexOf(subStr) > -1) {
+          position = "new";
+        } else if (["oldest", "older", "old", "last"].indexOf(subStr) > -1) {
+          position = "old";
+        }
+      });
+      console.log(count, position);
+      if (!position || !count) {
+        alert("Couldn't recognize. Please try again");
+      } else {
+        order.value = position;
+        noOfUser.value = count;
+      }
+    }
+
+    // speech recognition API supported
+    var recognition = new webkitSpeechRecognition();
+    recognition.continuous = true;
+    recognition.interimResults = true;
+    recognition.onresult = function (event) {
+      var interim_transcript = "";
+      for (var i = event.resultIndex; i < event.results.length; ++i) {
+        if (event.results[i].isFinal) {
+          final_transcript += event.results[i][0].transcript;
+        } else {
+          interim_transcript += event.results[i][0].transcript;
+        }
+      }
+      interim.innerHTML = interim_transcript;
+      if (final_transcript.length > 0) {
+        processResult(final_transcript);
+      }
+    };
+
+    recognition.onerror = function(event) {
+        alert('Error: ', event.error);
+    //   if (event.error == 'no-speech') {
+    //     start_img.src = 'assets/mic.gif';
+    //     showInfo('no_speech');
+    //     ignore_onend = true;
+    //   }
+    //   if (event.error == 'audio-capture') {
+    //     start_img.src = 'assets/mic.gif';
+    //     showInfo('no_microphone');
+    //     ignore_onend = true;
+    //   }
+    //   if (event.error == 'not-allowed') {
+    //     if (event.timeStamp - start_timestamp < 100) {
+    //       showInfo('blocked');
+    //     } else {
+    //       showInfo('denied');
+    //     }
+    //     ignore_onend = true;
+    //   }
+    };
+
+    recognition.onend = function() {
+      start_img.src = 'assets/mic.gif';
+    };
+
+    start_button
+      .addEventListener("click", function () {
+        // showInfo('speak_now');
+        start_img.src = 'assets/mic-animation.gif';
+        final_transcript = "";
+        recognition.start();
+      });
+  } else {
+    // speech recognition API not supported
+    // upgrade();
+  }
+</script>

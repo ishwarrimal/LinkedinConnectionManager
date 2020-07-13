@@ -92,7 +92,7 @@
           <div class="btn-group">
             <button id="back-btn-redirect" type="button" class="btn btn-warning btn-sm back-btn"><i
                 class="fa fa-angle-double-left" style="font-size:24px"></i></button>
-            <button type="button" id="redirect" class="btn btn-primary btn-sm">Withdraw Connection</button>
+            <button type="button" id="redirect_withdraw" class="btn btn-primary btn-sm">Withdraw Connection</button>
           </div>
 
 
@@ -108,7 +108,7 @@
     </div>
     <div class="row">
       <div class="col-sm-8">
-        <form class="form" id="form">
+        <div class="form" id="form">
           <div class="form-group">
             <select class="custom-select custom-select-sm" id="order">
               <option default value="new">Newest first</option>
@@ -121,12 +121,17 @@
             </label>
             <input type="number" class="form-control" id="noOfUser" placeholder="Leave Empty for all" />
           </div>
+          <p id="interim"></p>
           <div class="form-group text-center">
             <button class="btn btn-warning btn-sm" type="submit" value="Withdraw" id="withdraw">
               Withdraw Request
             </button>
+            <button id="start_button" width="25px">
+              <img id="start_img" src="assets/mic.gif" alt="Start">
+            </button>
           </div>
-        </form>
+          </div>
+        </div>
       </div>
     </div>
   </div>

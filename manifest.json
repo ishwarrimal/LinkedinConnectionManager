@@ -1,10 +1,22 @@
 {
   "name": "Linkedin Connection Manager",
   "description": "Send, withdraw connection request.",
-  "version": "1.1",
+  "version": "1.4.0",
   "browser_action": {
     "default_popup": "index.html",
-    "default_icon": "./assets/logo.png"
+    "default_icon": "assets/icon-16.png"
+  },
+  "icons": {
+    "16": "assets/icon-16.png",
+    "48": "assets/icon-48.png",
+    "128": "assets/icon-128.png"
+  },
+  "browser-action": {
+    "default_icons": {
+      "16": "assets/icon-16.png",
+      "48": "assets/icon-48.png",
+      "128": "assets/icon-128.png"
+    }
   },
   "manifest_version": 2,
   "commands": {
@@ -22,5 +34,5 @@
       "js": ["./scripts/index.js"]
     }
   ],
-  "permissions": ["tabs", "activeTab"]
+  "permissions": ["tabs", "audioCapture"]
 }

@@ -21,9 +21,11 @@ body {
 }
 
 .form {
-  border: .5px solid black;
+  border: 0.5px solid black;
   border-radius: 3%;
   display: none;
 }
 
-
+#interim {
+  text-align: center;
+}
